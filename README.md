@@ -68,17 +68,17 @@ if not(cond) goto linenr
 ~~~               
 
 **For**
-~~~               
+```{r, attr.source='.numberLines'}               
 for i 4 10 2 {      
   ...                     
 }                       
-~~~  
+```  
 becomes:
-~~~               
+```{r, attr.source='.numberLines'}         
 var i 4
   ...
 i i+2   ; if i<10 goto linenr
-~~~               
+```              
 
 **While**
 ~~~               
