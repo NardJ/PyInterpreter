@@ -56,41 +56,41 @@ Also multiline If/For/While statements are possible, because they are rewritten 
 
 **If**
 ~~~               
-if cond {               
-  ...
-}
+1| if cond {               
+2|   ...
+3| }
 ~~~               
 becomes:
 ~~~               
-if not(cond) goto linenr
-  ...
-[empty line]
+1| if not(cond) goto 3
+2|   ...
+3| 
 ~~~               
 
 **For**
-```{r, attr.source='.numberLines'}               
-for i 4 10 2 {      
-  ...                     
-}                       
-```  
+~~~               
+1| for i 4 10 2 {      
+2|   ...                     
+3| }                       
+~~~               
 becomes:
-```{r, attr.source='.numberLines'}         
-var i 4
-  ...
-i i+2   ; if i<10 goto linenr
-```              
+~~~               
+1| var i 4
+2|   ...
+3| i i+2   ; if i<10 goto 1
+~~~               
 
 **While**
 ~~~               
-while cond { 
-  ...          
-}           
+1| while cond { 
+2|   ...          
+3| }           
 ~~~               
 becomes:
 ~~~
-if not(cond) goto linenr   
-  ...
-if cond goto linenr  
+1| if not(cond) goto 3   
+2|   ...
+3| if cond goto 1
 ~~~               
 
 **Remarks:**
