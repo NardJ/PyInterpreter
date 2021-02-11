@@ -33,7 +33,7 @@ The script language only consists of the following allowed statements:
 Syntax                  | Description                                                             
 :-----------------------|:-----------------------------------------------------------------------
 \# comment               | lines starting with # are considered comments
-... # comment           | comments can also start mid sentence
+statement # comment     | comments can also start mid sentence
 .                       | .
 var vName vValue        | create variable with name vName and value vValue                       
 var vName calculation   | create variable with name vName and value as result from calculation  
