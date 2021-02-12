@@ -39,7 +39,7 @@ Syntax                  | Example        | Description
 statement # comment     | `a 1 # comment`| comments can also start mid sentence
 .                       | .
 var vName value/calc    | `var a 1`      | create variable with name vName and initialize with literal (int/float/string) or expression 
-vName calculation       | `var b 1+a`    | assignement literal or expression to variable vName  
+vName calculation       | `var b 1+a`    | assignement of literal or expression to variable vName  
 if condition lineNr     | `if a 7`       | if condition (literal/variable/expression) is true jump to line lineNr  
 .                       | .
 label lName             | `label part2`  | make an alias lName for current line number                     
