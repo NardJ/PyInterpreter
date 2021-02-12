@@ -35,7 +35,7 @@ Core allowed statements
 The script language only consists of the following allowed statements:
 Syntax                  | Example        | Description                                                             
 :-----------------------|:---------------|:-----------------------------------------------------------------------
-\# comment              | `\# comment`   | lines starting with # are considered comments
+\# comment              | `# comment`    | lines starting with # are considered comments
 statement # comment     | `a 1 # comment`| comments can also start mid sentence
 .                       | .
 var vName value/calc    | `var a 1`      | create variable with name vName and initialize with literal (int/float/string) or expression 
