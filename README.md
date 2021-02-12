@@ -101,12 +101,12 @@ print version           | prints current script version
 Allowed formatting
 ------------------
 Some characters are ignored and can be used to make your script more readable:
-- single equal signs 
+- single equal signs '=' e.g. var assignement:
 ~~~
     var b = 1
     b = 2
 ~~~
-- triple points and ':'
+- triple points '...' and colon ':' e.g. for statement:
 ~~~
     for i = 4 ... 10 : 2 {        
 ~~~
