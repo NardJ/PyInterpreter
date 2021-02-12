@@ -70,11 +70,28 @@ print "-----------"
 if False {
     goto skip3
 }
-print ("OK   multiline branch (IF{-command)")
+print ("OK   if-multiline")
 goto skip4
 label skip3
-print ("FAIL multiline branch (IF{-command)")
+print ("FAIL if-multiline)")
 label skip4
+
+a 0
+
+if True {
+  a 1
+}else{
+  a a+2
+}
+print f"{'OK  ' if a==1 else 'FAIL'} if/else-multiline part if"
+
+a 0
+if False {
+  a 1
+}else{
+  a a+2
+}
+print f"{'OK  ' if a==2 else 'FAIL'} if/else-multiline part else"
 
 var i 0
 while (i<4) {    
