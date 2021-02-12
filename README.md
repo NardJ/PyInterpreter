@@ -1,4 +1,5 @@
-# PyInterpreter
+PyInterpreter
+=============
 
 A simple script interpreter written in python. All tokens should be seperated by spaces, except for tokens within expressions (calculations).
 String values should be enclosed between double quotes (") and can be formatted with python3 f-formatting syntax, e.g. `f"The number is {nr}."`
@@ -26,9 +27,11 @@ return
 
 It is possible to create functions, however passing variables is not (yet) implemented.
 
----
-
-### Core allowed statements  
+---  
+  
+  
+Core allowed statements
+-----------------------
 The script language only consists of the following allowed statements:
 Syntax                  | Description                                                             
 :-----------------------|:-----------------------------------------------------------------------
@@ -52,7 +55,9 @@ Several statements on one line can be seperated with ';' but this is not encoura
 
 ---
 
-### Macro statements  
+
+Macro statements  
+----------------
 Also multiline If/For/While statements are possible, because they are rewritten to core statements  
 
 **If**
@@ -100,7 +105,8 @@ becomes:
 
 ---
 
-### Internal variables and functions
+Internal variables and functions
+--------------------------------
 It is possible to define and call upon internal functions
 
 Syntax                  | Description
@@ -110,7 +116,8 @@ print                   | print to console
 print version           | prints current script version
 ---
 
-### Allowed formatting
+Allowed formatting
+------------------
 Some characters are ignored and can be used to make your script more readable:
 - single equal signs 
 ~~~
