@@ -58,7 +58,8 @@ Several statements on one line can be seperated with ';' but this is not encoura
 
 Macro statements  
 ----------------
-Also multiline If/For/While statements are possible, because they are rewritten to core statements  
+Also multiline If/For/While statements are possible, because they are rewritten to core statements.
+All multiline macro statements can be nested.
 
 **If**
 Line | Macro statement        | Core statement
@@ -83,8 +84,6 @@ Line | Macro statement        | Core statement
 2    | `  ...        `        | `  ...               `
 3    | `}            `        | `if cond goto 1      `
 
-**Remarks:**
-- Macro's can be nested
 
 ---
 
