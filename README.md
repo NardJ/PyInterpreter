@@ -32,7 +32,7 @@ It is possible to create functions, however passing variables is not (yet) imple
 The script language only consists of the following allowed statements:
 Syntax                  | Description                                                             
 :-----------------------|:-----------------------------------------------------------------------
-\# comment               | lines starting with # are considered comments
+\# comment              | lines starting with # are considered comments
 statement # comment     | comments can also start mid sentence
 .                       | .
 var vName value/calc    | create variable with name vName and initialize with literal (int/float/string) or expression 
@@ -40,11 +40,13 @@ vName calculation       | assignement literal or expression to variable vName
 if condition lineNr     | if condition (literal/variable/expression) is true jump to line lineNr  
 .                       | .
 label lName             | make an alias lName for current line number                     
-goto lName / lineNr     | go to liner number associated with alias lName
+goto lName / lineNr     | go to line number associated with alias lName
 .                       | .
 sub lName               | same as label                     
 gosub lName / lineNr    | same as goto, but put current line number on callStack  
 return                  | set line number to last added line number put on callStack  
+.                       | .
+exit                    | stop interpreter  
   
 Several statements on one line can be seperated with ';' but this is not encouraged and mainly used for internally rewriting macro's
 
