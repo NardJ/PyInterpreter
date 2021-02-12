@@ -117,7 +117,7 @@ Line | Macro statement        | Core statement
 
 System functions
 --------------------------------
-In your python script you can define and call upon internal functions using addSystemFunction. On start only 'print' is prefined.
+In your python project you can define and call upon internal functions using addSystemFunction. On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
