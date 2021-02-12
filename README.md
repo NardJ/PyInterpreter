@@ -94,7 +94,7 @@ Line | Macro statement        | Core statement
 2    |`  ...`                 | `  ...`
 3    |`}else{`                | `goto 5`
 4    |`  ...`                 | `  ...`
-5    |`}`                     | ``
+5    |`}`                     | ` `
 
 Variable in for-loop does not have to be defined beforehand
 
@@ -115,15 +115,30 @@ Line | Macro statement        | Core statement
 
 ---
 
-Internal variables and functions
+System functions
 --------------------------------
-It is possible to define and call upon internal functions
+In your python script you can define and call upon internal functions using addSystemFunction. On start only 'print' is prefined.
 
-Syntax                  | Description
+Syntax                      | Example
+:---------------------------|:-----------------------------------------------------------------------
+addSystemFunction(name,<br/>| `PyInterpreter.addSystemFunction(<br/>`
+&nbsp&nbsp function,param typelist)   | &nbsp&nbsp `'print',print,[(int,float,bool,string),])`
+
+Script example: `print "test"`
+
+---
+
+System variables 
+--------------------------------
+It is also possible to define internal variables which are then available within the script. On start only 'version' is predefined.
+
+Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
-sleep 2                 | int or float nr of seconds
-print                   | print to console
-print version           | prints current script version
+addSystemVar(name,val)  | `PyInterpreter.addSystemVar ('version', '09.02.21')`
+modSystemVar(name,val)  | `PyInterpreter.modSystemVar ('version', '12.02.21')`
+
+Script example: `print version`
+
 ---
 
 Allowed formatting
