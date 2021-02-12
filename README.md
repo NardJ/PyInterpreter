@@ -9,20 +9,20 @@ The script resembles javascript a bit, for example:
 ~~~
 # This is a comment
 
-var firstName = "John"                                
-var lastName  = "Adams"                               
-print (f"My name is {firstName} {lastName}")          
+print ("Hello World!")
 
-print ("Watch me count even number between 0 and 10:")  
-for x = 0 ... 10 : 2 {                               
-  gosub showNumber                                   
+var firstName = "John"
+var lastName = "Smith"
+print (f"\nMy name is {firstName} {lastName}")
+
+print ("\nWatch me count even numbers between 0 and 10:")
+for x = 0 ... 10 : 2 {
+  gosub showNumber
 }
 
-exit                                                 
-
-sub showNumber                                        
+sub showNumber
   print (f"  {x}")
-return                                         
+return                                   
 ~~~
 
 It is possible to create functions, however passing variables is not (yet) implemented.
