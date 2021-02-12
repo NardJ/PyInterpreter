@@ -61,47 +61,29 @@ Macro statements
 Also multiline If/For/While statements are possible, because they are rewritten to core statements  
 
 **If**
-~~~               
-1| if cond {               
-2|   ...
-3| }
-~~~               
-becomes:
-~~~               
-1| if not(cond) goto 3
-2|   ...
-3| 
-~~~               
+Line | Macro statement        | Core statement
+:----|:-----------------------|:-----------------------------------------------------------------------
+1    |`if cond {`             | `if not(cond) goto 3`
+2    |`  ...`                 | `  ...`
+3    |`}`                     | ``
+Variable in for-loop does not have to be defined beforehand
 
 **For**
-~~~               
-1| for i 4 10 2 {      
-2|   ...                     
-3| }                       
-~~~               
-becomes:
-~~~               
-1| var i 4
-2|   ...
-3| i i+2   ; if i<10 goto 1
-~~~               
+Line | Macro statement        | Core statement
+:----|:-----------------------|:-----------------------------------------------------------------------
+1    | `for i 4 10 2 {`       | `var i 4`
+2    | `  ...`                | `  ...`
+3    | `}`                    | `i i+2 ; if i<10 goto 1`
 
 **While**
-~~~               
-1| while cond { 
-2|   ...          
-3| }           
-~~~               
-becomes:
-~~~
-1| if not(cond) goto 3   
-2|   ...
-3| if cond goto 1
-~~~               
+Line | Macro statement        | Core statement
+:----|:-----------------------|:-----------------------------------------------------------------------
+1    | `while cond { `        | `if not(cond) goto 3 `
+2    | `  ...        `        | `  ...               `
+3    | `}            `        | `if cond goto 1      `
 
 **Remarks:**
 - Macro's can be nested
-- Variable in for-loop does not have to be defined beforehand
 
 ---
 
