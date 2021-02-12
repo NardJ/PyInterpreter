@@ -66,6 +66,7 @@ Line | Macro statement        | Core statement
 1    |`if cond {`             | `if not(cond) goto 3`
 2    |`  ...`                 | `  ...`
 3    |`}`                     | ``
+
 Variable in for-loop does not have to be defined beforehand
 
 **For**
