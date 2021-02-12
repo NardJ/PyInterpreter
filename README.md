@@ -90,9 +90,11 @@ All multiline macro statements can be nested.
 **If**
 Line | Macro statement        | Core statement
 :----|:-----------------------|:-----------------------------------------------------------------------
-1    |`if cond {`             | `if not(cond) goto 3`
+1    |`if cond {`             | `if not(cond) goto 4`
 2    |`  ...`                 | `  ...`
-3    |`}`                     | ``
+3    |`}else{`                | `goto 5`
+4    |`  ...`                 | `  ...`
+5    |`}`                     | ``
 
 Variable in for-loop does not have to be defined beforehand
 
