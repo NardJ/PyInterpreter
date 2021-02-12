@@ -122,7 +122,7 @@ In your python script you can define and call upon internal functions using addS
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
 addSystemFunction(name,<br/>| `PyInterpreter.addSystemFunction(<br/>`
-&nbsp&nbsp function,param typelist)   | &nbsp&nbsp `'print',print,[(int,float,bool,string),])`
+function,param typelist)    | `'print',print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
 
