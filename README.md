@@ -1,7 +1,7 @@
 PyInterpreter
 =============
 
-A simple script interpreter written in python. All tokens should be seperated by spaces, except for tokens within expressions (calculations).
+A simple script interpreter written in python. All tokens must be seperated by spaces, except for tokens within expressions (calculations).
 String values should be enclosed between double quotes (") and can be formatted with python3 f-formatting syntax, e.g. `f"The number is {nr}."`
 All python3 math functions are available for expressions e.g. `a = 3+math.sin(math.pi/2)`. Expressions and strings can be enclosed in parentheses '(', ')'
 
