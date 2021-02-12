@@ -1,54 +1,44 @@
 '''
-Core allowed statements
------------------------
-var vName vValue      # create variable with name vName and value vValue
-var vName calculation # create variable with name vName and value as result from calculation
-vName Calculation     # put result of calculation in variable vName
-if vName lineNr       # if value of vName>0 goto lineNr
+PyInterpreter: A simple script interpreter written in python. 
 
-label lName           # create reference to current lineNr with name lName
-goto lName / lineNr   # go to lineNr (with name lName)
+All tokens must be seperated by spaces, except for tokens within expressions (calculations). 
+String values should be enclosed between double quotes (") and can be formatted with python3 
+f-formatting syntax, e.g. f"The number is {nr}." 
+All python3 math functions are available for expressions e.g. a = 3+math.sin(math.pi/2). 
 
-sub lName             # create reference to current lineNr with name lName
-gosub lName / lineNr  # go to lineNr with name lName, but put current line on callStack
-return                # return to last linenr put on callStack
+The interpreter only recognizes 9 core commands: var defition, var assignment, if goto, label, 
+goto, sub gosub, return, exit
 
-Remarks:
-- All items in a statement should be separated by space(s)
-- Calculations may not have spaces
-- Calculations may contain all python3 math functions e.g. 'a 3+math.sin(math.pi/2)'
-- Several statements on one line can be seperated with ; but not encouraged and mainly used for internally rewriting macro's
-- String values should be enclosed between double quotes "
-- Use f"abc {var1:abc} def" to format string with vars
+The following 'macro' multiline statements are rewritten to core commands beforehand:
+if else, while and for.
 
-Macro statements        (will be replaced by preprocessor with core statements)
-----------------------
-if cond {             # if not(cond) goto linenr
-}                     # pass
+Some chars are removed beforehand and can be used to increase readability of script:
+'=', '...', ':'. Expressions and string can be enclosed in parentheses '(',')'
 
-for i 4 10 2 {        # var i 4  
-}                     # i i+2   ; if i<10 goto linenr
+Usage
 
-while cond {          # if not(cond) goto linenr   
-}                     # if cond goto linenr
+  1 Copy PyInterpreter.py to your project
 
-Remarks:
-- Macro's can be nested
-- Variable in for-loop does not have to be defined beforehand
+  2 Add to your main projectfile
+    Import PyInterpreter
 
-Internal functions
-----------------------
-sleep 2               # int or float nr of seconds
-print                 # print tp console
+  3 If you want to add function use addSystemFunction e.g.
+    PyInterpreter.addSystemFunction('sleep',time.sleep,[(int,float),])
+    First argument is call name, second is python function, this is list of allowed types for each argument the function takes.
 
+  4 If you want to add variables use addSystemVar e.g.
+    PyInterpreter.addSystemVar('pi', math,pi)
 
-Allowed formatting
-----------------------
-- single equal signs will be replaced by single spaces, this makes the following formatting possible
-    var b = 1
-    b = 2
-- triple points and : will be replaced by single space, this makes the following formatting possible
-    for i = 4 ... 10 : 2 {        
+  5 Run script with loadScript and runScript() e.g.
+    PyInterpreter.loadScript("myscript.pyi")
+    PyInterpreter.runScript()
+    or
+    PyInterpreter.runScript("myscript.pyi")
+
+  6 After loading script, the script can be rerun with runScript().
+    System variables can be changed with modSystemVar. e.g.
+    PyInterpreter.modSystemVar('pi', 3.2)
+    PyInterpreter.runScript()       
 '''
 
 import os
