@@ -1,12 +1,12 @@
-# scriptInterpreter
+# PyInterpreter
 
-A simple script interpreter written in python. All tokens should be seperated by spaces, except for tokens within calculations.
+A simple script interpreter written in python. All tokens should be seperated by spaces, except for tokens within expressions (calculations).
 String values should be enclosed between double quotes (") and can be formatted with python3 f-formatting syntax, e.g. `f"The number is {nr}."`
-Calculations may contain python3 math functions e.g. `a = 3+math.sin(math.pi/2)`. Calculations and strings can be enclosed in parentheses '(', ')'
+All python3 math functions are available for expressions e.g. `a = 3+math.sin(math.pi/2)`. Expressions and strings can be enclosed in parentheses '(', ')'
 
 The script resembles javascript a bit, for example:
 ~~~
-# Comments are possible but uses # instead of //
+# This is a comment
 
 var firstName = "John"                                
 var lastName  = "Adams"                               
@@ -35,17 +35,16 @@ Syntax                  | Description
 \# comment               | lines starting with # are considered comments
 statement # comment     | comments can also start mid sentence
 .                       | .
-var vName vValue        | create variable with name vName and value vValue                       
-var vName calculation   | create variable with name vName and value as result from calculation  
-vName Calculation       | put result of calculation in variable vName  
-if vName lineNr         | if value of vName>0 goto lineNr  
+var vName value/calc    | create variable with name vName and initialize with literal (int/float/string) or expression 
+vName calculation       | assignement literal or expression to variable vName  
+if condition lineNr     | if condition (literal/variable/expression) is true jump to line lineNr  
 .                       | .
-label lName             | create reference to current lineNr with name lName                     
-goto lName / lineNr     | go to lineNr (with name lName)                                         
+label lName             | make an alias lName for current line number                     
+goto lName / lineNr     | go to liner number associated with alias lName
 .                       | .
-sub lName               | create reference to current lineNr with name lName  
-gosub lName / lineNr    | go to lineNr with name lName, but put current line on callStack  
-return                  | return to last linenr put on callStack  
+sub lName               | same as label                     
+gosub lName / lineNr    | same as goto, but put current line number on callStack  
+return                  | set line number to last added line number put on callStack  
   
 Several statements on one line can be seperated with ';' but this is not encouraged and mainly used for internally rewriting macro's
 
