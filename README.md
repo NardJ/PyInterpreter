@@ -32,29 +32,26 @@ It is possible to create functions, however passing variables is not (yet) imple
 Usage
 -----
 1) Copy PyInterpreter.py to your project
-<br/>
-2) Add to your main projectfile
-~~~
-    Import PyInterpreter
-~~~
+2) Add to your main projectfile</br>
+```Import PyInterpreter```</br>
 
-3) If you want to add function use addSystemFunction e.g.
+3) If you want to add function use addSystemFunction e.g.</br>
 ```PyInterpreter.addSystemFunction('sleep',time.sleep,[(int,float),])```<br/>
 First argument is call name, second is python function, this is list of allowed types for each argument the function takes.
 
-4) If you want to add variables use addSystemVar e.g.
+4) If you want to add variables use addSystemVar e.g.</br>
 ```PyInterpreter.addSystemVar('pi', math,pi)```<br/>
 
-5) Run script with loadScript and runScript() e.g.
-```PyInterpreter.loadScript("myscript.pyi")```
-```PyInterpreter.runScript()```
-or
+5) Run script with loadScript and runScript() e.g.</br>
+```PyInterpreter.loadScript("myscript.pyi")```</br>
+```PyInterpreter.runScript()```</br>
+*or*</br>
 ```PyInterpreter.runScript("myscript.pyi")```
 
-6) After loading script, the script can be rerun with runScript(). 
-System variables can be changed with modSystemVar. e.g.
-```PyInterpreter.modSystemVar('pi', 3.2)```
-```PyInterpreter.runScript()```
+6) After loading script, the script can be rerun with runScript(). </br>
+System variables can be changed with modSystemVar. e.g.</br>
+```PyInterpreter.modSystemVar('pi', 3.2)```</br>
+```PyInterpreter.runScript()```</br>
 
 ---  
   
