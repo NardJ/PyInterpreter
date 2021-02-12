@@ -36,11 +36,11 @@ Usage
 ```Import PyInterpreter```</br>
 
 3) If you want to add function use addSystemFunction e.g.</br>
-```PyInterpreter.addSystemFunction('sleep',time.sleep,[(int,float),])```<br/>
+```PyInterpreter.addSystemFunction("sleep",time.sleep,[(int,float),])```<br/>
 First argument is call name, second is python function, this is list of allowed types for each argument the function takes.
 
 4) If you want to add variables use addSystemVar e.g.</br>
-```PyInterpreter.addSystemVar('pi', math,pi)```<br/>
+```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
 5) Run script with loadScript and runScript() e.g.</br>
 ```PyInterpreter.loadScript("myscript.pyi")```</br>
@@ -50,7 +50,7 @@ First argument is call name, second is python function, this is list of allowed 
 
 6) After loading script, the script can be rerun with runScript(). </br>
 System variables can be changed with modSystemVar. e.g.</br>
-```PyInterpreter.modSystemVar('pi', 3.2)```</br>
+```PyInterpreter.modSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()```</br>
 
 ---  
@@ -121,7 +121,7 @@ In your python project you can define and call upon internal functions using add
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-addSystemFunction(name,<br/>function,param typelist)| `PyInterpreter.addSystemFunction`(<br/>`'print',print,[(int,float,bool,string),])`
+addSystemFunction(name,<br/>function,param typelist)| `PyInterpreter.addSystemFunction`(<br/>`"print",print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
 
@@ -133,8 +133,8 @@ It is also possible to define internal variables which are then available within
 
 Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
-addSystemVar(name,val)  | `PyInterpreter.addSystemVar ('version', '09.02.21')`
-modSystemVar(name,val)  | `PyInterpreter.modSystemVar ('version', '12.02.21')`
+addSystemVar(name,val)  | `PyInterpreter.addSystemVar ("version", "09.02.21")`
+modSystemVar(name,val)  | `PyInterpreter.modSystemVar ("version", "12.02.21")`
 
 Script example: `print version`
 
