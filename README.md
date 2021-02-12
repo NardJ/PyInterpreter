@@ -121,8 +121,7 @@ In your python project you can define and call upon internal functions using add
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-addSystemFunction(name,<br/>| `PyInterpreter.addSystemFunction(<br/>`
-function,param typelist)    | `'print',print,[(int,float,bool,string),])`
+addSystemFunction(name,<br/>function,param typelist)| `PyInterpreter.addSystemFunction`(<br/>`'print',print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
 
