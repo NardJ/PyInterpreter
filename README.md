@@ -117,11 +117,11 @@ Some characters are ignored and can be used to make your script more readable:
     var b = 1
     b = 2
 ~~~
-- triple points and : 
+- triple points and ':'
 ~~~
     for i = 4 ... 10 : 2 {        
 ~~~
- - calculationd and strings can be enclosed in parentheses '('
+ - calculations and strings can be enclosed in parentheses '(', ')'.
 ~~~
   var a = (1+2*3)
   print (a)
