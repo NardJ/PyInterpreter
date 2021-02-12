@@ -112,7 +112,7 @@ Some characters are ignored and can be used to make your script more readable:
 ~~~
  - calculations and strings can be enclosed in parentheses '(', ')'.
 ~~~
-  var a = (1+2*3)
-  print (a)
+    var a = (1+2*3)
+    print (a)
 ~~~
    
