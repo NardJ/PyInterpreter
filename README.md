@@ -37,7 +37,7 @@ Usage
 
 3) If you want to add function use addSystemFunction e.g.</br>
 ```PyInterpreter.addSystemFunction("sleep",time.sleep,[(int,float),])```<br/>
-First argument is call name, second is python function, this is list of allowed types for each argument the function takes.
+*First argument is call name, second is python function, this is list of allowed types for each argument the function takes.*
 
 4) If you want to add variables use addSystemVar e.g.</br>
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
@@ -50,11 +50,10 @@ First argument is call name, second is python function, this is list of allowed 
 ```PyInterpreter.runScript()```</br>
 *or*</br>
 ```PyInterpreter.runScript("myscript.pyi")```</br>
-</br>
-runScript returns False if errors were encountered and True if script ran successfull.
+*runScript returns False if errors were encountered and True if script ran successfull.*
 
 6) After loading script, the script can be rerun with runScript(). </br>
-System variables can be changed with modSystemVar. e.g.</br>
+Beforehand system variables can be changed with modSystemVar. e.g.</br>
 ```PyInterpreter.modSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()```</br>
 
