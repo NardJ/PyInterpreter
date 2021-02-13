@@ -136,7 +136,7 @@ On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-addSystemFunction(name,<br/>function,param typelist)| `import PyInterpreter as pyi`<br/>`pyi.addSystemFunction("print",`<br/>`  print,[(int,float,bool,string),])`
+addSystemFunction(name,<br/>function,param typelist)| `import PyInterpreter as pyi`<br/>`pyi.addSystemFunction("print",`<br/>` ` ` ` `print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
 
@@ -148,7 +148,7 @@ In your python project you can link to local functions using ***importSystemFunc
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-importystemFunction(pyInterpreterName,<br/>projectName,projectLocalFunction)| `import PyInterpreter as pyi`<br/>`def received():`<br/>`    return "test"`<br/>`pyi.importSystemFunction`(<br/>`pyi,__name__,received)`
+importSystemFunction(pyInterpreterName,<br/>projectName,projectLocalFunction)| `import PyInterpreter as pyi`<br/>`def received():`<br/>` ` ` ` `return "test"`<br/>`pyi.importSystemFunction`(<br/>`pyi,__name__,received)`
 
 Script example: `print received()`
 
