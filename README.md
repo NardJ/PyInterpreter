@@ -50,7 +50,8 @@ First argument is call name, second is python function, this is list of allowed 
 ```PyInterpreter.runScript()```</br>
 *or*</br>
 ```PyInterpreter.runScript("myscript.pyi")```</br>
-runScript returns False if errors where encountered and returns True if script ran successfull.
+</br>
+runScript returns False if errors were encountered and True if script ran successfull.
 
 6) After loading script, the script can be rerun with runScript(). </br>
 System variables can be changed with modSystemVar. e.g.</br>
