@@ -43,6 +43,7 @@ First argument is call name, second is python function, this is list of allowed 
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
 5) Run script with setScript/loadScript and runScript or only runScript e.g.</br>
+loadScript returns a list of strings where each string is a line from the loaded file.</br>
 runScript returns False if errors were encountered and True if script ran successfull.</br>
 ```PyInterpreter.setScript(["var a 0\nprint a\n"])```</br>
 ```PyInterpreter.runScript()```</br>
