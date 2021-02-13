@@ -456,6 +456,7 @@ def runScript(scriptpath=None):
                         if arg.__class__.__name__=='ValueError':
                             logError(linenr,statement,tokens[argNr-1],f"EvalError: {arg.args[0].capitalize()}")
                             linenr=len(scriptlines)
+                            errors+=1
                     # handle command
                     if not errors:
                         if cmd=="var"      and checkArgs(linenr,statement,args,[[str],[str,float,bool,int],]):
