@@ -71,10 +71,10 @@ def millis():
 # ERROR TRACING
 #####################################################
 errorHandler=None
-def logError(lineNr,scriptline,token,errMsg,indent=0):
-    errLine=f"{lineNr+1:4} > '{scriptline.strip()}'\n"
-    if token: errLine+=f"  Token: '{token}'\n"
-    errLine+=f"  {errMsg}"
+def logError(lineNr,scriptline,token,errMsg):
+    errLine=f"{lineNr+1:04} > '{scriptline.strip()}'\n"
+    if token: errLine+=f"Token: '{token}'\n"
+    errLine+=f"{errMsg}"
     errorStack.append (errLine)  
 
 def printErrorStack():
@@ -83,6 +83,7 @@ def printErrorStack():
             print ("Errors found:")
             for error in errorStack:
                 print (error)
+                print ('\n')
     else:
         errorHandler(errorStack)            
 quitOnError=True # needed for debugging error messages
