@@ -387,13 +387,20 @@ def loadScript(scriptpath):
     return orgscriptlines
 
 def addSystemVar(varName,varValue):
-    systemVars[varName]=varValue
+    if not varName in systemVars: systemVars[varName]=varValue
+    else:                         raise ValueError(f"Variable {varName} already present with value {systemVars[varName]}.")
 
 def modSystemVar(varName,varValue):
-    systemVars[varName]=varValue
+    if varName in systemVars:     systemVars[varName]=varValue
+    else:                         raise ValueError(f"Variable {varName} not yet present.")
 
 def addSystemFunction(funcName,function,argTypeList):
-    systemDefs[funcName]=(function,argTypeList)
+    if not funcName in systemDefs:systemDefs[funcName]=(function,argTypeList)
+    else:                         raise ValueError(f"Function {funcName} already present with properties {systemDefs[funcName]}.")
+
+def modSystemFunction(funcName,function,argTypeList):
+    if funcName in systemDefs:    systemDefs[funcName]=(function,argTypeList)
+    else:                         raise ValueError(f"Function {funcName} not yet already present.")
 
 def runScript(scriptpath=None):
     global orgscriptlines
