@@ -62,6 +62,9 @@ System variables can be changed with modSystemVar. e.g.</br>
       print (errorStack)
    pyInterpreter.setErrorHandler(myHndlr)
 ```
+
+runScript returns False if errors where encountered and returns True if script ran successfull.
+
 ---  
   
   
