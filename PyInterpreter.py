@@ -397,6 +397,8 @@ def addSystemFunction(funcName,function,argTypeList):
 def runScript(scriptpath=None):
     global orgscriptlines
     global errorStack
+    # clear errorStack
+    errorStack=[]
 
     # load script
     if scriptpath!=None:
