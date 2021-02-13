@@ -63,6 +63,7 @@ def millis():
 # ERROR TRACING
 #####################################################
 errorStack=[]
+errorHandler=None
 def logError(lineNr,scriptline,token,errMsg,indent=0):
     errLine=f"{lineNr+1:4} > '{scriptline.strip()}'\n"
     if token: errLine+=f"  Token: '{token}'\n"
@@ -70,10 +71,13 @@ def logError(lineNr,scriptline,token,errMsg,indent=0):
     errorStack.append (errLine)  
 
 def printErrorStack():
-    if errorStack:
-        print ("Errors found:")
-        for error in errorStack:
-            print (error)
+    if not errorHandler:
+        if errorStack:
+            print ("Errors found:")
+            for error in errorStack:
+                print (error)
+    else:
+        errorHandler(errorStack)            
 quitOnError=True # needed for debugging error messages
 
 
@@ -351,11 +355,28 @@ def checkArgs(lineNr,statement,tokens,tAllowedTypes):
 # USER FUNCTIONS
 #####################################################
 
+orgscriptlines=None
+
+def setErrorHandler(errorHandlerFunction):
+    global errorHandler
+    errorHandler=errorHandlerFunction
+
+def setScript(scriptlinesList):
+    global orgscriptlines
+    # check if list
+    if not isinstance(scriptlinesList,list):
+            raise ValueError(f"scriptlinesList should be of type <class 'list'> containing strings of scriptlines. Got {type(scriptlinesList)}.")
+    # check if lines are all strings
+    for line in scriptlinesList:
+        if not isinstance(line,str):
+            raise ValueError(f"scriptlinesList should contain elements of type <class 'str'> containing strings of scriptlines. Got line with {type(line)}.")
+
+    orgscriptlines=scriptlinesList
+
 def loadScript(scriptpath):
     with open(scriptpath, "r") as reader: # open file
-        scriptlines=reader.readlines()                  # read all lines
-    #read script (can be edited by user)
-    return scriptlines
+        setScript(reader.readlines())
+    return orgscriptlines
 
 def addSystemVar(varName,varValue):
     systemVars[varName]=varValue
@@ -366,7 +387,6 @@ def modSystemVar(varName,varValue):
 def addSystemFunction(funcName,function,argTypeList):
     systemDefs[funcName]=(function,argTypeList)
 
-orgscriptlines=None
 def runScript(scriptpath=None):
     global orgscriptlines
     global errorStack
@@ -376,6 +396,9 @@ def runScript(scriptpath=None):
         scriptlines=loadScript(scriptpath)
         orgscriptlines=scriptlines
     else:
+        if orgscriptlines==None:  
+            raise ValueError("No script loaded. Please specify path or use loadScript(scriptpath) / setScript(listOfscriptlines) first.")
+            return
         scriptlines=orgscriptlines    
     # remove remarks
     ret=removeRemarks(scriptlines)
@@ -468,7 +491,8 @@ def runScript(scriptpath=None):
         # if statements           
         linenr+=1
     # while linenr<len(scriptlines)  
-    printErrorStack()
+    if errorStack:
+        printErrorStack()
 
 if __name__=="__main__":
     
@@ -476,8 +500,28 @@ if __name__=="__main__":
     addSystemVar('pi',         math.pi)
     addSystemFunction('sleep',time.sleep,[(int,float),])
 
-    runScript(os.path.join(scriptdir,"testAll.pyi"))
+    #Example 1
+    runScript(os.path.join(scriptdir,"helloworld.pyi"))
+
+    #Example 2
+    #loadScript(os.path.join(scriptdir,"helloworld.pyi"))
+    #runScript()
+
+    #Example 3
+    #script=["var a 0\n","print \"hello\"\n"]
+    #setScript(script)
+    #runScript()
+
+    #Example 4
+    '''
+    def myHndlr(errStack):
+        print ("Got error stack!")
+        print (errStack)
+
+    setErrorHandler(myHndlr)
+    script=["var a 0\n","print b\n"]
+    setScript(script)
     runScript()
-    #runScript(os.path.join(scriptdir,"helloworld.pyi"))
-    #runScript(os.path.join(scriptdir,"debug.pyi"))
+    '''
+
 
