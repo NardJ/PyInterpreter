@@ -32,17 +32,18 @@ It is possible to create functions, however passing variables is not (yet) imple
 Usage
 -----
 1) Copy PyInterpreter.py to your project
-2) Add to your main projectfile</br>
+
+2) Import it into your main projectfile</br>
 ```Import PyInterpreter```</br>
 
-3) If you want to add function use addSystemFunction e.g.</br>
+3) If you want to add function use *addSystemFunction*.</br>
 First argument is call name, second is python function, this is list of allowed types for each argument the function takes.</br>
 ```PyInterpreter.addSystemFunction("sleep",time.sleep,[(int,float),])```<br/>
 
-4) If you want to add variables use addSystemVar e.g.</br>
+4) If you want to add variables use *addSystemVar*.</br>
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
-5) Run script with setScript/loadScript and runScript or only runScript e.g.</br>
+5) Run script with *setScript*/*loadScript* and *runScript* or only *runScript*.</br>
 loadScript returns a list of strings where each string is a line from the loaded file.</br>
 runScript returns False if errors were encountered and True if script ran successfull.</br>
 ```PyInterpreter.setScript(["var a 0\nprint a\n"])```</br>
@@ -53,12 +54,12 @@ runScript returns False if errors were encountered and True if script ran succes
 *or*</br>
 ```PyInterpreter.runScript("myscript.pyi")```</br>
 
-6) After loading script, the script can be rerun with runScript(). </br>
-Beforehand system variables can be changed with modSystemVar. e.g.</br>
+6) After loading script, the script can be rerun with *runScript()* without arguments. </br>
+Beforehand system variables can be changed with *modSystemVar*. </br>
 ```PyInterpreter.modSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()```</br>
 
-7) To specifiy a custom error handler use setErrorHandler()
+7) To specifiy a custom error handler use *setErrorHandler*.
 ```
    def myHndlr(errStack):
       print (errorStack)
@@ -96,7 +97,7 @@ Several statements on one line can be seperated with ';' but this is not encoura
 
 Macro statements  
 ----------------
-Also multiline If/For/While statements are possible, because they are rewritten to core statements.
+Also multiline *if*/*for*/*while* statements are possible, because they are rewritten to core statements.
 All multiline macro statements can be nested.
 
 **If**
@@ -129,7 +130,7 @@ Line | Macro statement        | Core statement
 
 System functions
 --------------------------------
-In your python project you can define and call upon internal functions using addSystemFunction. On start only 'print' is prefined.
+In your python project you can define and call upon internal functions using *addSystemFunction*. </br>On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
@@ -141,7 +142,7 @@ Script example: `print "test"`
 
 System variables 
 --------------------------------
-It is also possible to define internal variables which are then available within the script. On start only 'version' is predefined.
+It is also possible to define internal variables using *addSystemVar* which are then available within the script. </br>On start only 'version' is predefined.
 
 Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
