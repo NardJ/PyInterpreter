@@ -148,7 +148,7 @@ In your python project you can link to local functions using ***importSystemFunc
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-importSystemFunction(pyInterpreterName,<br/>projectName,projectLocalFunction)| `import PyInterpreter as pyi`<br/>`def received():`<br/>` ` ` ` `return "test"`<br/>`pyi.importSystemFunction`(<br/>`pyi,__name__,received)`
+importSystemFunction(pyInterpreterName,<br/>projectName,projectLocalFunction)| `import PyInterpreter as pyi`<br/>`def received():`<br/>` ` ` ` `return "test"`<br/>`pyi.importSystemFunction`(<br/>` ` ` ` `pyi,__name__,received)`
 
 Script example: `print received()`
 
