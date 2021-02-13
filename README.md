@@ -55,8 +55,8 @@ runScript returns False if errors were encountered and True if script ran succes
 ```PyInterpreter.runScript("myscript.pyi")```</br>
 
 6) After loading script, the script can be rerun with ***runScript()*** without arguments. </br>
-Beforehand system variables can be changed with ***modSystemVar***. </br>
-```PyInterpreter.modSystemVar("pi", 3.2)```</br>
+Beforehand system variables can be set or changed with ***addSystemVar***. </br>
+```PyInterpreter.addSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()```</br>
 
 7) To specifiy a custom error handler use ***setErrorHandler***.
@@ -130,8 +130,7 @@ Line | Macro statement        | Core statement
 
 System functions without output
 --------------------------------
-In your python project you can define internal functions using ***addSystemFunction*** to call upon in your script. </br>
-Use ***modSystemFunction*** to change a function.</br>
+In your python project you can define or modify an internal functions using ***addSystemFunction*** to call upon in your script. </br>
 On start only 'print' is prefined.
 
 Syntax                      | Example
@@ -156,14 +155,12 @@ Script example: `print received()`
 
 System variables 
 --------------------------------
-It is also possible to define internal variables using ***addSystemVar*** to be available within the script. </br>
-Use ***modSystemVar*** to change a variable.</br>
+It is also possible to define or modify internal variables using ***addSystemVar*** to be available within the script. </br>
 On start only 'version' is predefined.
 
 Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
 addSystemVar(name,val)  | `import PyInterpreter as pyi`<br/>`pyi.addSystemVar ("version", "09.02.21")`
-modSystemVar(name,val)  | `import PyInterpreter as pyi`<br/>`pyi.modSystemVar ("version", "12.02.21")`
 
 Script example: `print version`
 
