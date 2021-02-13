@@ -36,11 +36,11 @@ Usage
 2) Import it into your main projectfile</br>
 ```Import PyInterpreter```</br>
 
-3) If you want to add function use **addSystemFunction**.</br>
+3) If you want to add function use ***addSystemFunction***.</br>
 First argument is call name, second is python function, this is list of allowed types for each argument the function takes.</br>
 ```PyInterpreter.addSystemFunction("sleep",time.sleep,[(int,float),])```<br/>
 
-4) If you want to add variables use **addSystemVar**.</br>
+4) If you want to add variables use ***addSystemVar***.</br>
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
 5) Run script with **setScript**/**loadScript** and **runScript** or only **runScript**.</br>
