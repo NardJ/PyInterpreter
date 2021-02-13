@@ -136,7 +136,7 @@ On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-addSystemFunction(name,<br/>function,param typelist)| `import PyInterpreter as pyi`<br/>`pyi.addSystemFunction(`<br/>`"  print",print,[(int,float,bool,string),])`
+addSystemFunction(name,<br/>function,param typelist)| `import PyInterpreter as pyi`<br/>`pyi.addSystemFunction("print",`<br/>`  print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
 
