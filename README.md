@@ -42,7 +42,10 @@ First argument is call name, second is python function, this is list of allowed 
 4) If you want to add variables use addSystemVar e.g.</br>
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
-5) Run script with loadScript and runScript() e.g.</br>
+5) Run script with setScript or loadScript and runScript() e.g.</br>
+```PyInterpreter.setScript(["var a 0\nprint a\n"])```</br>
+```PyInterpreter.runScript()```</br>
+*or*</br>
 ```PyInterpreter.loadScript("myscript.pyi")```</br>
 ```PyInterpreter.runScript()```</br>
 *or*</br>
@@ -53,6 +56,12 @@ System variables can be changed with modSystemVar. e.g.</br>
 ```PyInterpreter.modSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()```</br>
 
+7) To specifiy a custom error handler use setErrorHandler()
+```
+   def myHndlr(errStack):
+      print (errorStack)
+   pyInterpreter.setErrorHandler(myHndlr)
+```
 ---  
   
   
