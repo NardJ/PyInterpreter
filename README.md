@@ -128,7 +128,7 @@ Line | Macro statement        | Core statement
 
 ---
 
-System functions
+System functions without output
 --------------------------------
 In your python project you can define internal functions using ***addSystemFunction*** to call upon in your script. </br>
 Use ***modSystemFunction*** to change a function.</br>
@@ -136,9 +136,21 @@ On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
-addSystemFunction(name,<br/>function,param typelist)| `PyInterpreter.addSystemFunction`(<br/>`"print",print,[(int,float,bool,string),])`
+addSystemFunction(name,<br/>function,param typelist)| `import PyInterpreter as pyi`<br/>`pyi.addSystemFunction(`<br/>`"  print",print,[(int,float,bool,string),])`
 
 Script example: `print "test"`
+
+---
+
+System functions with output
+--------------------------------
+In your python project you can link to local functions using ***importSystemFunction*** to call upon in your script. </br>
+
+Syntax                      | Example
+:---------------------------|:-----------------------------------------------------------------------
+importystemFunction(pyInterpreterName,<br/>projectName,projectLocalFunction)| `import PyInterpreter as pyi`<br/>`def received():`<br/>`    return "test"`<br/>`pyi.importSystemFunction`(<br/>`pyi,__name__,received)`
+
+Script example: `print received()`
 
 ---
 
@@ -150,8 +162,8 @@ On start only 'version' is predefined.
 
 Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
-addSystemVar(name,val)  | `PyInterpreter.addSystemVar ("version", "09.02.21")`
-modSystemVar(name,val)  | `PyInterpreter.modSystemVar ("version", "12.02.21")`
+addSystemVar(name,val)  | `import PyInterpreter as pyi`<br/>`pyi.addSystemVar ("version", "09.02.21")`
+modSystemVar(name,val)  | `import PyInterpreter as pyi`<br/>`pyi.modSystemVar ("version", "12.02.21")`
 
 Script example: `print version`
 
