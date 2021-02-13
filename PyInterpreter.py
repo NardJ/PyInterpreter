@@ -500,6 +500,9 @@ def runScript(scriptpath=None):
     # while linenr<len(scriptlines)  
     if errorStack:
         printErrorStack()
+        return False
+    else:
+        return True
 
 if __name__=="__main__":
     
