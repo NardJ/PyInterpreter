@@ -52,9 +52,17 @@ scriptdir = os.path.dirname(scriptpath)
 
 # FOLLOWING VARS, SYSTEM FUNCTIONS can be called from scipt
 systemVars={'version':'09.02.21'}
-systemDefs={'print'  :(print,[[bool,int,float,str],]),
-            }
+systemDefs={'print'  :(print,[[bool,int,float,str],]),}
 callStack=[]
+errorStack=[]
+
+def clearGlobals():
+    global systemVars,systemVars,callStack,errorStack
+    systemVars={'version':'09.02.21'}
+    systemDefs={'print'  :(print,[[bool,int,float,str],]),}
+    callStack=[]
+    errorStack=[]
+
 
 def millis():
     return time.time()*1000
@@ -62,7 +70,6 @@ def millis():
 #####################################################
 # ERROR TRACING
 #####################################################
-errorStack=[]
 errorHandler=None
 def logError(lineNr,scriptline,token,errMsg,indent=0):
     errLine=f"{lineNr+1:4} > '{scriptline.strip()}'\n"
@@ -500,19 +507,23 @@ if __name__=="__main__":
     addSystemVar('pi',         math.pi)
     addSystemFunction('sleep',time.sleep,[(int,float),])
 
-    #Example 1
+    # Example 1
+    # =========
     runScript(os.path.join(scriptdir,"helloworld.pyi"))
 
-    #Example 2
+    # Example 2
+    # =========
     #loadScript(os.path.join(scriptdir,"helloworld.pyi"))
     #runScript()
 
-    #Example 3
+    # Example 3
+    # =========
     #script=["var a 0\n","print \"hello\"\n"]
     #setScript(script)
     #runScript()
 
-    #Example 4
+    # Example 4
+    # =========
     '''
     def myHndlr(errStack):
         print ("Got error stack!")
@@ -524,4 +535,9 @@ if __name__=="__main__":
     runScript()
     '''
 
+    # For debugging
+    # =============
+    #addSystemVar('pi',         math.pi)
+    #addSystemFunction('sleep',time.sleep,[(int,float),])
+    #runScript(os.path.join(scriptdir,"testAll.pyi"))
 
