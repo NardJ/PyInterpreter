@@ -42,14 +42,14 @@ First argument is call name, second is python function, this is list of allowed 
 4) If you want to add variables use addSystemVar e.g.</br>
 ```PyInterpreter.addSystemVar("pi", math,pi)```<br/>
 
-5) Run script with setScript/loadScript and runScript() or with runScript(scriptFilename) e.g.</br>
+5) Run script with setScript/loadScript and runScript or only runScript e.g.</br>
 ```PyInterpreter.setScript(["var a 0\nprint a\n"])```</br>
 ```PyInterpreter.runScript()```</br>
 *or*</br>
 ```PyInterpreter.loadScript("myscript.pyi")```</br>
 ```PyInterpreter.runScript()```</br>
 *or*</br>
-```PyInterpreter.runScript("myscript.pyi")```
+```PyInterpreter.runScript("myscript.pyi")```</br>
 runScript returns False if errors where encountered and returns True if script ran successfull.
 
 6) After loading script, the script can be rerun with runScript(). </br>
