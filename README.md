@@ -130,7 +130,9 @@ Line | Macro statement        | Core statement
 
 System functions
 --------------------------------
-In your python project you can define and call upon internal functions using ***addSystemFunction***. </br>On start only 'print' is prefined.
+In your python project you can define internal functions using ***addSystemFunction*** to call upon in your script. </br>
+Use ***modSystemFunction*** to change a function.</br>
+On start only 'print' is prefined.
 
 Syntax                      | Example
 :---------------------------|:-----------------------------------------------------------------------
@@ -142,7 +144,9 @@ Script example: `print "test"`
 
 System variables 
 --------------------------------
-It is also possible to define internal variables using ***addSystemVar*** which are then available within the script. </br>On start only 'version' is predefined.
+It is also possible to define internal variables using ***addSystemVar*** to be available within the script. </br>
+Use ***modSystemVar*** to change a variable.</br>
+On start only 'version' is predefined.
 
 Syntax                  | Example
 :-----------------------|:-----------------------------------------------------------------------
