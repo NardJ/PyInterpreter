@@ -515,9 +515,6 @@ def runScript(scriptpath=None):
     else:
         return True
 
-class Funcs():
-    pass
-funcs=Funcs()
 def importSystemFunction(self,filename,methodname):
     func = getattr(__import__(filename), methodname)
     #setattr(funcs,methodname,func)
