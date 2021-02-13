@@ -515,28 +515,37 @@ def runScript(scriptpath=None):
     else:
         return True
 
+class Funcs():
+    pass
+funcs=Funcs()
+def importSystemFunction(self,filename,methodname):
+    func = getattr(__import__(filename), methodname)
+    #setattr(funcs,methodname,func)
+    setattr(self,methodname,func)
+
 if __name__=="__main__":
-    
+  
     addSystemVar('scriptpath', scriptpath)
     addSystemVar('pi',         math.pi)
     addSystemFunction('sleep',time.sleep,[(int,float),])
+    #importSystemFunction('filename')
 
-    # Example 1
+    # Example 1 - load and run script in one line
     # =========
     runScript(os.path.join(scriptdir,"helloworld.pyi"))
 
-    # Example 2
+    # Example 2 - load and run script in separate lines
     # =========
     #loadScript(os.path.join(scriptdir,"helloworld.pyi"))
     #runScript()
 
-    # Example 3
+    # Example 3 - inject script and run 
     # =========
     #script=["var a 0\n","print \"hello\"\n"]
     #setScript(script)
     #runScript()
 
-    # Example 4
+    # Example 4 - custom error handler
     # =========
     '''
     def myHndlr(errStack):
@@ -549,9 +558,25 @@ if __name__=="__main__":
     runScript()
     '''
 
+    # Example 5 - call function internal of ^this module^
+    # =========
+    #addSystemFunction('millis',time.sleep,[(int,float),])
+    #script=["print millis()\n"]
+    #setScript(script)
+    #runScript()
+
+    # Example 6 - call function external of this module
+    # =========
+    # in your main project add:
+    #   def test():
+    #       return "hello"
+    #   import PyInterpreter as pyi
+    #   pyi.importSystemFunction(pyi,__name__,"test")
+
     # For debugging
     # =============
     #addSystemVar('pi',         math.pi)
     #addSystemFunction('sleep',time.sleep,[(int,float),])
     #runScript(os.path.join(scriptdir,"testAll.pyi"))
 
+    
