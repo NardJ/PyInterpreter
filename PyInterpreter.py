@@ -364,10 +364,15 @@ def checkArgs(lineNr,statement,tokens,tAllowedTypes):
 #####################################################
 
 orgscriptlines=None
+callbackHandler=None
 
 def setErrorHandler(errorHandlerFunction):
     global errorHandler
     errorHandler=errorHandlerFunction
+
+def setCallBack(callbackHandlerFunction):
+    global callbackHandler
+    callbackHandler=callbackHandlerFunction
 
 def setScript(scriptlinesList):
     global orgscriptlines
@@ -392,7 +397,7 @@ def addSystemVar(varName,varValue):
 def addSystemFunction(funcName,function,argTypeList):
     systemDefs[funcName]=(function,argTypeList)
 
-def runScript(scriptpath=None):
+def runScript(scriptpath=None,delaytime=0):
     global orgscriptlines
     global errorStack
     # clear errorStack
@@ -434,6 +439,7 @@ def runScript(scriptpath=None):
     linenr=0
     while linenr<len(scriptlines):                                  # follow lines and control statements until last line
         statements=scriptline2statements(scriptlines[linenr])
+        if callbackHandler: callbackHandler(linenr)
         #tokens=scriptline2tokens(scriptlines[linenr])
         if statements:
             for statement in statements:
@@ -488,7 +494,7 @@ def runScript(scriptpath=None):
                         elif cmd in systemDefs:                            
                             functionH=systemDefs[cmd][0]
                             allowedTypes=systemDefs[cmd][1]
-                            #print (f"system:{cmd} vs {functionH} {allowedTypes} ")
+                            #print (f"system function:{cmd} {args} {allowedTypes} ")
                             if checkArgs(linenr,statement,args,allowedTypes): 
                                 functionH(*args)                                # call external function
                         else:
@@ -498,6 +504,7 @@ def runScript(scriptpath=None):
             # for statement in statements
         # if statements           
         linenr+=1
+        time.sleep(delaytime)
     # while linenr<len(scriptlines)  
     if errorStack:
         printErrorStack()
