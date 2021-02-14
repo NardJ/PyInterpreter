@@ -48,10 +48,10 @@ loadScript returns a list of strings where each string is a line from the loaded
 runScript returns False if errors were encountered and True if script ran successfull.</br>
 ```PyInterpreter.setScript(["var a 0\nprint a\n"])```</br>
 ```PyInterpreter.runScript()```</br>
-*or*</br>
+***or***</br>
 ```PyInterpreter.loadScript("myscript.pyi")```</br>
 ```PyInterpreter.runScript()```</br>
-*or*</br>
+***or***</br>
 ```PyInterpreter.runScript("myscript.pyi")```</br>
 
 6) After loading script, the script can be rerun with ***runScript()*** without arguments. </br>
@@ -59,14 +59,14 @@ Beforehand system variables can be set or changed with ***addSystemVar***. </br>
 ```PyInterpreter.addSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()            ```</br>
 
-7) To specifiy a custom error handler use ***setErrorHandler***.
+7) To specifiy a custom error handler use ***setErrorHandler***.</br>
 ```def myErrHndlr(errStack):                   ```</br>
-```   print (errStack)                         ```</br>
+``` ``` ``` ``` print (errStack)                         ```</br>
 ```pyInterpreter.setErrorHandler(myErrHndlr)   ```</br>
 
-8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.
+8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.</br>
 ```def myCallback(linenr):                     ```</br>
-```   print (linenr)                           ```</br>
+``` ``` ``` ``` print (linenr)                           ```</br>
 ```pyInterpreter.setCallbackHandler(myCallback)```</br>
 
 ---  
