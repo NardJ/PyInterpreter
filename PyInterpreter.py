@@ -370,7 +370,7 @@ def setErrorHandler(errorHandlerFunction):
     global errorHandler
     errorHandler=errorHandlerFunction
 
-def setCallBack(callbackHandlerFunction):
+def setCallbackHandler(callbackHandlerFunction):
     global callbackHandler
     callbackHandler=callbackHandlerFunction
 
