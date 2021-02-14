@@ -66,7 +66,7 @@ Beforehand system variables can be set or changed with ***addSystemVar***. </br>
    pyInterpreter.setErrorHandler(myErrHndlr)
 ```
 
-8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of processed line number
+8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.
 ```
    def myCallback(linenr):
       print (linenr)
