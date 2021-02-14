@@ -61,12 +61,12 @@ Beforehand system variables can be set or changed with ***addSystemVar***. </br>
 
 7) To specifiy a custom error handler use ***setErrorHandler***.</br>
 ```def myErrHndlr(errStack):                   ```</br>
-``` ``` ``` ``` print (errStack)                         ```</br>
+``` ``` ``` ``` ```print (errStack)                         ```</br>
 ```pyInterpreter.setErrorHandler(myErrHndlr)   ```</br>
 
 8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.</br>
 ```def myCallback(linenr):                     ```</br>
-``` ``` ``` ``` print (linenr)                           ```</br>
+``` ``` ``` ``` ```print (linenr)                           ```</br>
 ```pyInterpreter.setCallbackHandler(myCallback)```</br>
 
 ---  
