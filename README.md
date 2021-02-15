@@ -53,6 +53,7 @@ runScript returns False if errors were encountered and True if script ran succes
 ```PyInterpreter.runScript()```</br>
 ***or***</br>
 ```PyInterpreter.runScript("myscript.pyi")```</br>
+If you want to run the script slower, you can specify a delay in seconds with the 'delay' argument.
 
 6) After loading script, the script can be rerun with ***runScript()*** without arguments. </br>
 Beforehand system variables can be set or changed with ***addSystemVar***. </br>
