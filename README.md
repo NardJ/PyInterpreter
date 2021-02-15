@@ -5,7 +5,7 @@ A simple script interpreter written in python. All tokens must be seperated by s
 String values should be enclosed between double quotes (") and can be formatted with python3 f-formatting syntax, e.g. `f"The number is {nr}."`
 All python3 math functions are available for expressions e.g. `a = 3+math.sin(math.pi/2)`. Expressions and strings can be enclosed in parentheses '(', ')'
 
-The script resembles javascript a bit, for example:
+The script has some traits from javascript (var assignement, control flow), python (expressions) and basic (goto/gosub), for example:
 ~~~
 # This is a comment
 
