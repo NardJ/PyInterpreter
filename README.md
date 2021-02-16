@@ -6,7 +6,7 @@ String values should be enclosed between double quotes (") and can be formatted 
 All python3 math functions are available for expressions e.g. `a = 3+math.sin(math.pi/2)`. Expressions and strings can be enclosed in parentheses '(', ')'
 
 The script has some traits from javascript (var assignement, control flow), python (expressions) and basic (goto/gosub), for example:
-~~~
+~~~javascript
 # This is a comment
 
 print ("Hello World!")
@@ -174,16 +174,16 @@ Allowed free formatting
 ------------------
 Some characters are ignored and can be used to make your script more readable:
 - single equal signs '=' e.g. var assignement:
-~~~
+~~~javascript
     var b = 1
     b = 2
 ~~~
 - triple points '...' and colon ':' e.g. for statement:
-~~~
+~~~javascript
     for i = 4 ... 10 : 2 {        
 ~~~
  - calculations and strings can be enclosed in parentheses '(', ')'.
-~~~
+~~~javascript
     var a = (1+2*3)
     print (a)
 ~~~
