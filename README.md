@@ -60,12 +60,14 @@ Beforehand system variables can be set or changed with ***addSystemVar***. </br>
 ```PyInterpreter.addSystemVar("pi", 3.2)```</br>
 ```PyInterpreter.runScript()            ```</br>
 
-7) To specifiy a custom error handler use ***setErrorHandler***.</br>
+7) While running script, the script can be stopped with ***stopScript()***. </br>
+
+8) To specifiy a custom error handler use ***setErrorHandler***.</br>
 ```def myErrHndlr(errStack):                   ```</br>
 ``` ``` ``` ``` ```print (errStack)                         ```</br>
 ```pyInterpreter.setErrorHandler(myErrHndlr)   ```</br>
 
-8) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.</br>
+9) Specifiy a callback handler with ***setCallbackHandler*** to get updated of each processed line number.</br>
 ```def myCallback(linenr):                     ```</br>
 ``` ``` ``` ``` ```print (linenr)                           ```</br>
 ```pyInterpreter.setCallbackHandler(myCallback)```</br>
